@@ -1,0 +1,25 @@
+{%extends 'yousta/base.html'%}
+{%block body_block%}
+{%if messages%}
+    {%for m in messages%}
+
+      <div>
+        {{m}}
+      </div>
+    {%endfor%}
+
+{%endif%}
+
+    
+<div class="container d-flex align-items-center justify-content-center">
+    <form action="" method="post" enctype="multipart/form-data" class="border border-2 shadow p-5">
+
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="add">
+    </form>
+
+
+</div>
+
+{%endblock%}
