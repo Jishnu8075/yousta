@@ -64,7 +64,7 @@ class SignInView(FormView):
             if usr:
                 login(request,usr)
                 messages.success(request,"login successfully")
-                return redirect("index")
+                return redirect("cloth-list")
             else:
                 messages.error(request,"invalid creadential")
                 return render(request,self.template_name,{"form":form})
@@ -237,4 +237,4 @@ def cart_view(request):
     cart_items = Carts.objects.all()
     total_price = sum(item.product.price * item.quantity for item in cart_items)
 
-    return render(request, 'cart/cart_view.html', {'cart_items': cart_items, 'total_price': total_price})
+    return render(request, 'cart_add.html', {'cart_items': cart_items, 'total_price': total_price})
